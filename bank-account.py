@@ -11,23 +11,34 @@ class BankAccount:
         # 9 digit number, same for all accts
         self.routing_number = 226576883
         # should start at 0
-        self.balance = 0
+        self.balance = float(0)
 
     # methods def
-    # def deposit(self, amount):
-    #     # take parameter amount, add amount to the balance
-    #     print("Amount Deposited: $")
+    def deposit(self, amount):
+        # take parameter amount, add amount to the balance
+        self.balance += amount
+        total = float(amount)
+        print(f"Amount Deposited: ${total}")
+        print(f"New Balance: ${self.balance}")
 
-    # def withdraw(self, amount):
-    #     # take parameter amount, subtract amount from balance
-    #     print("Amount Withdrawn: $")
-    #     # if user withdraws more than current balance,
-    #     print("Insufficient funds.")
-    #     # also, charge overdraft fee of $10.
+    def withdraw(self, amount):
+        # take parameter amount, subtract amount from balance
+        if self.balance >= amount:
+            self.balance -= amount
+            total = float(amount)
+            print(f"Amount Withdrawn: ${total}")
+            print(f"New Balance: ${self.balance}")
+        else:
+            self.balance -= amount
+            # if user withdraws more than current balance charge overdraft fee of $10
+            self.balance -= 10
+            print("Insufficient funds. An overdraft fee of $10.00 has been charged to your account.")
+            print(f"New Balance: ${self.balance}")
 
     # def get_balance(self):
-    #     print("user friendly message with acct balance")
-    #     # return(balance)
+        # print(f"Thank you for using the Bank of Dad. Your balance is ${self.balance}. Have a nice day!")
+        # print(f"Current Balance: ${self.balance}")
+        # return self.balance
 
 
     # def add_interest(self):
@@ -37,6 +48,8 @@ class BankAccount:
 
     # def print_reciept(self):
     #     print("looks like this:")
+
+
         # Joi Anderson
         # Account No.: ****5678
         # Routing No.: 98765432
@@ -59,3 +72,8 @@ print(f"Routing Number: {ares.routing_number}")
 print(lexi.full_name)
 print(f"Account Number: {str(lexi.account_number)}")
 print(f"Routing Number: {lexi.routing_number}")
+
+
+print(jay.deposit(10))
+print(jay.withdraw(10))
+print(jay.withdraw(10))
