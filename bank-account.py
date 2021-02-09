@@ -3,6 +3,7 @@ import secrets
 import string
 # banks apparently use acct numbers in a string
 
+# The Bank of Dad
 class BankAccount:
     def __init__(self, full_name):
         self.full_name = full_name
@@ -18,6 +19,7 @@ class BankAccount:
         # take parameter amount, add amount to the balance
         self.balance += amount
         total = float(amount)
+
         print(f"Amount Deposited: ${total}")
         print(f"New Balance: ${self.balance}")
 
@@ -35,25 +37,26 @@ class BankAccount:
             print("Insufficient funds. An overdraft fee of $10.00 has been charged to your account.")
             print(f"New Balance: ${self.balance}")
 
-    # def get_balance(self):
-        # print(f"Thank you for using the Bank of Dad. Your balance is ${self.balance}. Have a nice day!")
-        # print(f"Current Balance: ${self.balance}")
-        # return self.balance
+    def get_balance(self):
+        print("Thank you for using The Bank of Dad.")
+        print(f"Your balance is ${self.balance}. You should get a job like your sister.")
+        return self.balance
 
 
-    # def add_interest(self):
-    #     # add interest to the users balance, interest rate is 1%, or 0.083% per month
-    #     # interest = balance * 0.00083
-    #     print("interest amount")
+    # def add_interest(self, interest, balance):
+        # add interest to the users balance, interest rate is 1%, or 0.083% per month
+        # interest = balance * 0.00083
+        # self.interest = interest
+        # self.balance += self.interest
+        # print("interest amount")
 
-    # def print_reciept(self):
-    #     print("looks like this:")
-
-
-        # Joi Anderson
-        # Account No.: ****5678
-        # Routing No.: 98765432
-        # Balance: $100.00 
+    def print_reciept(self):
+        print("Account Summary:")
+        print(" ")
+        print("Name: ", self.full_name)
+        print("Routing Number:", self.routing_number)
+        print("Account Number:", self.account_number)
+        print("Balance: $", self.balance)
 
 # outside class, define 3 different bank acct examples using BankAccount object
 
@@ -74,6 +77,19 @@ print(f"Account Number: {str(lexi.account_number)}")
 print(f"Routing Number: {lexi.routing_number}")
 
 
-print(jay.deposit(10))
-print(jay.withdraw(10))
-print(jay.withdraw(10))
+jay.deposit(10)
+jay.withdraw(10)
+ares.deposit(100)
+jay.withdraw(10)
+ares.withdraw(45)
+jay.get_balance()
+ares.get_balance()
+jay.print_reciept()
+ares.print_reciept()
+lexi.print_reciept()
+
+
+# account_list = [jay, ares, lexi]
+
+# for account in account_list:
+#     account.account_number()
