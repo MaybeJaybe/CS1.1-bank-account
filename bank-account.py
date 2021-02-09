@@ -42,21 +42,22 @@ class BankAccount:
         print(f"Your balance is ${self.balance}. You should get a job like your sister.")
         return self.balance
 
-
-    # def add_interest(self, interest, balance):
+    def add_interest(self):
         # add interest to the users balance, interest rate is 1%, or 0.083% per month
-        # interest = balance * 0.00083
-        # self.interest = interest
-        # self.balance += self.interest
-        # print("interest amount")
+        interest = self.balance * 0.00083
+        self.interest = interest
+        self.balance += self.interest
+        print(self.interest)
+        print(self.balance)
 
     def print_reciept(self):
+        print(" ")
         print("Account Summary:")
         print(" ")
-        print("Name: ", self.full_name)
+        print("Name:", self.full_name)
         print("Routing Number:", self.routing_number)
         print("Account Number:", self.account_number)
-        print("Balance: $", self.balance)
+        print("Balance: $", str(round(self.balance, 2)))
 
 # outside class, define 3 different bank acct examples using BankAccount object
 
@@ -88,8 +89,10 @@ jay.print_reciept()
 ares.print_reciept()
 lexi.print_reciept()
 
+jay.add_interest()
+ares.add_interest()
+lexi.add_interest()
 
-# account_list = [jay, ares, lexi]
-
-# for account in account_list:
-#     account.account_number()
+jay.print_reciept()
+ares.print_reciept()
+lexi.print_reciept()
